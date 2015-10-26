@@ -3,10 +3,10 @@
  */
 
 // to complete any level use the script bellow
-var directions = ['north', 'east', 'south', 'west'];
-var levelIncomplete = false;
-var rightHand, lastStep;
 var oppositeSide = {'north' : 'south', 'east' : 'west', 'south' : 'north', 'west' : 'east'};
+var directions = Object.keys(oppositeSide);
+var levelComplete = false;
+var rightHand, lastStep;
 
 function runForestRun() {
   if(lastStep !== undefined) {
@@ -28,7 +28,6 @@ function runForestRun() {
       }
     }
   }
-
 }
 
 function newDirection(landmark) {
@@ -43,21 +42,8 @@ function newDirection(landmark) {
 function makeStepTo(direction) {
   var result;
   lastStep = direction;
-  switch (direction) {
-    case 'north':
-      result = north();
-      break;
-    case 'east':
-      result = east();
-      break;
-    case 'south':
-      result = south();
-      break;
-    case 'west':
-      result = west();
-      break;
-  }
-  if(result === 'next' || result === 'end') levelIncomplete = true
+  result = window[direction]();
+  if(result === 'next' || result === 'end') levelComplete = true
   updateRightHand(lastStep);
   map();
 }
@@ -72,6 +58,11 @@ function updateRightHand(lastStep) {
   }
 }
 
-while(levelIncomplete) {
+while(!levelComplete) {
   runForestRun();
+}
+
+if(levelComplete) {
+  levelComplete = false;
+  rightHand = lastStep = undefined;
 }
