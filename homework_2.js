@@ -5,17 +5,17 @@
 // to complete any level use the script bellow
 var oppositeSideFor  = {'north' : 'south', 'east' : 'west', 'south' : 'north', 'west' : 'east'};
 var rightHandBasedOn = {'north' : 'east', 'east' : 'south', 'south' : 'west', 'west' : 'north'};
-var levelComplete = true;
+var isLevelCompleted = true;
 var rightHand, lastStep;
 
-if(levelComplete) initialize();
+if(isLevelCompleted) initialize();
 
-while(!levelComplete) {
+while(!isLevelCompleted) {
   runForestRun();
 }
 
 function initialize() {
-  levelComplete = false;
+  isLevelCompleted = false;
   rightHand = 'west';
   lastStep = 'south';
 }
@@ -33,10 +33,10 @@ function runForestRun() {
 }
 
 function makeStepTo(direction) {
-  var result;
+  var result = '';
   lastStep = direction;
   result = window[direction]();
-  if(result === 'next' || result === 'end') levelComplete = true;
+  if(result === 'next' || result === 'end') isLevelCompleted = true;
   rightHand = rightHandBasedOn[lastStep];
   map();
 }
