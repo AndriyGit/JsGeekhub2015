@@ -17,12 +17,15 @@ function fn() {
   var args = Array.prototype.slice.call(arguments);
   return function(p1, p2) {
     var result, i;
-    for (i=0; i<args.length; i++) {
-      result = args[i](p1, p2);
+    for (i=0; i<args[0].length; i++) {
+      result = args[0][i](p1, p2);
       if(result == null) break;
       p1 = result[0];
       p2 = result[1];
 
+    }
+    if(result != null) {
+      result = args[1](p1, p2);
     }
     return result;
   }
