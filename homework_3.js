@@ -36,5 +36,5 @@ function fn() {
  * if you want that 'decorator' returns null and stop processing please provide 'decorator' function 4 times
  * and call 'applyDecorator' with second parameter no less then 20
  */
-applyDecorator = fn(decorator, decorator, multiplyBy100);
+applyDecorator = fn([decorator, decorator], multiplyBy100);
 applyDecorator(1, 20);
