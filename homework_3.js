@@ -14,7 +14,7 @@ function multiplyBy100(num1, num2) {
 }
 
 function fn() {
-  var args = arguments;
+  var args = Array.prototype.slice.call(arguments);
   return function(p1, p2) {
     var result, i;
     for (i=0; i<args.length; i++) {
