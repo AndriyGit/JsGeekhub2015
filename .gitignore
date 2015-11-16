@@ -14,3 +14,5 @@
 /coverage/
 
 .idea/
+
+/NodeDemo/node_modules
