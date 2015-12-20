@@ -1,3 +1,4 @@
+'use strict';
 class Figure {
   // coordinates should come like object - {x1: y1, x2: y2}
   constructor(coordinates) {
@@ -29,8 +30,8 @@ class Polygon extends Figure {
   }
 }
 
-let polygon = new Polygon({1:3, 5:4, 2:7});
-console.log(polygon.perimeter());
+//let polygon = new Polygon({1:3, 5:4, 2:7});
+//console.log(polygon.perimeter());
 
 
 class Rectangle extends Polygon {
@@ -52,12 +53,14 @@ class Rectangle extends Polygon {
   }
 
   width() {
-    let i = 0, x1, x2, y1, y2;
-    let abscissaValues = Object.keys(this.coordinates);
-    x1 = +abscissaValues[i];
-    y1 = this.coordinates[x1];
-    x2 = +abscissaValues[i+1];
-    y2 = this.coordinates[x2];
+    //let i = 0, x1, x2, y1, y2;
+    //let abscissaValues = Object.keys(this.coordinates);
+    //x1 = +abscissaValues[i];
+    //y1 = this.coordinates[x1];
+    //x2 = +abscissaValues[i+1];
+    //y2 = this.coordinates[x2];
+    var [x1, x2, y1, y2] = this.coordin(0);
+    debugger;
     return this.segment(x1, x2, y1, y2);
   }
 
@@ -66,7 +69,8 @@ class Rectangle extends Polygon {
   }
 }
 
-let rectangle = new Rectangle({1:3, 5:4, 2:7});
+let rectangle = new Rectangle({1:6, 5:6, 4:4, 3:4});
 console.log(rectangle.height());
 console.log(rectangle.width());
 console.log(rectangle.area());
+console.log(rectangle.perimeter());

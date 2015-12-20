@@ -10,8 +10,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-//'use strict';
-
 var Figure = (function () {
   // coordinates should come like object - {x1: y1, x2: y2}
 
@@ -107,28 +105,28 @@ var Rectangle = (function (_Polygon) {
       var x2 = _coordin2[1];
       var y1 = _coordin2[2];
       var y2 = _coordin2[3];
-      //var x1, x2, y1, y2, govno;
-      //govno = this.coordin(1);
-      //x1 = govno[0];
-      //x2 = govno[1];
-      //y1 = govno[2];
-      //y2 = govno[3];
 
       return this.segment(x1, x2, y1, y2);
     }
   }, {
     key: "width",
     value: function width() {
-      var i = 0,
-          x1 = undefined,
-          x2 = undefined,
-          y1 = undefined,
-          y2 = undefined;
-      var abscissaValues = Object.keys(this.coordinates);
-      x1 = +abscissaValues[i];
-      y1 = this.coordinates[x1];
-      x2 = +abscissaValues[i + 1];
-      y2 = this.coordinates[x2];
+      //let i = 0, x1, x2, y1, y2;
+      //let abscissaValues = Object.keys(this.coordinates);
+      //x1 = +abscissaValues[i];
+      //y1 = this.coordinates[x1];
+      //x2 = +abscissaValues[i+1];
+      //y2 = this.coordinates[x2];
+
+      var _coordin3 = this.coordin(0);
+
+      var _coordin4 = _slicedToArray(_coordin3, 4);
+
+      var x1 = _coordin4[0];
+      var x2 = _coordin4[1];
+      var y1 = _coordin4[2];
+      var y2 = _coordin4[3];
+
       return this.segment(x1, x2, y1, y2);
     }
   }, {
@@ -141,7 +139,8 @@ var Rectangle = (function (_Polygon) {
   return Rectangle;
 })(Polygon);
 
-var rectangle = new Rectangle({ 1: 3, 5: 4, 2: 7 });
+var rectangle = new Rectangle({ 1: 6, 5: 6, 5: 4, 1: 4 });
 console.log(rectangle.height());
 console.log(rectangle.width());
 console.log(rectangle.area());
+console.log(rectangle.perimeter());
