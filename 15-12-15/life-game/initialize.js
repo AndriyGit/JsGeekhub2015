@@ -1,0 +1,1 @@
+initializeAreaButton.addEventListener('click', go);
